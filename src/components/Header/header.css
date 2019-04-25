@@ -1,0 +1,14 @@
+.nav-container {
+    background-color:#000000;
+    max-height: 20vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+.barneys-logo{
+    max-height: 50px;
+    max-width: 50px
+}
