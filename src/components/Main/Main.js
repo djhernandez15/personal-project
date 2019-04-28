@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import FeaturedProducts from "../FeaturedProducts/FeaturedProducts";
-import ContactFooter from "../ContactFooter/ContactFooter";
+import ContactFooter from "../ContactForm/ContactForm";
 import "../FeaturedProducts/FeaturedProducts.css";
-import "../ContactFooter/ContactFooter.css";
+import "../ContactForm/ContactForm.css";
 
 export class Main extends Component {
   render() {

@@ -1,6 +1,6 @@
 .contact-footer {
   border: solid 1px red;
-  opacity: .5;
+  opacity: .9;
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -10,7 +10,7 @@
   background: black;
   border: solid 1px red;
   width: 40vw;
-  height: 20vh;
+  height: 40vh;
   display: flex;
   flex-direction: column;
 }

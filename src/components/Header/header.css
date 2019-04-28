@@ -1,19 +1,41 @@
 .header-container {
-    background-color:#000000;
-    max-height: 20vh;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-start;
-    font-size: calc(10px + 2vmin);
-    color: white;
-  }
-.barneys-logo{
+  /* background-color: #000000; */
+  background: #333;
+  height: 10vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.logo {
+  font-family: Impact, Charcoal, sans-serif;
+  font-size: 38px;
+  letter-spacing: 2px;
+  word-spacing: 0px;
+  color: #61dafb;
+  font-weight: 400;
+  text-decoration: none solid rgb(68, 68, 68);
+  font-style: normal;
+  font-variant: small-caps;
+  text-transform: capitalize;
+  margin-left: 5vw;
+}
+.home-link:hover,
+.login-link:hover {
+  color: #61dafb;
+}
+.links {
+  margin-left: 50vw;
+  width: 30vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/* .barneys-logo{
     max-height: 50px;
     max-width: 50px
-}
+} */
 i {
-    color: #FFF002;
+  color: #61dafb;
 }
-
-
