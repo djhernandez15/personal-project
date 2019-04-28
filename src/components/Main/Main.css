@@ -1,0 +1,13 @@
+.home-body {
+  background: url("https://images.unsplash.com/photo-1551239741-60537adebdb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=60") no-repeat center
+    center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: solid 2px blue;
+  height: 120vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,4 +1,4 @@
-.nav-container {
+.header-container {
     background-color:#000000;
     max-height: 20vh;
     display: flex;
@@ -12,3 +12,8 @@
     max-height: 50px;
     max-width: 50px
 }
+i {
+    color: #FFF002;
+}
+
+

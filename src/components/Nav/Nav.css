@@ -1,0 +1,17 @@
+.nav-container {
+  border: solid 1px red;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 5vh;
+  font-size: 1.8em;
+}
+.helmets-link:hover,
+.goggles-link:hover,
+.jerseys-link:hover,
+.pants-link:hover,
+.boots-link:hover,
+.gloves-link:hover {
+  color: rgb(158, 157, 157);
+  text-decoration: underline solid black;
+}
