@@ -3,6 +3,7 @@ import "./LoginForm.css";
 import { connect } from "react-redux";
 import { updateUser } from "../../../../ducks/reducers/authReducer";
 import axios from "axios";
+import { Redirect } from "react-router-dom";
 
 export class LoginForm extends Component {
   constructor() {
@@ -10,7 +11,8 @@ export class LoginForm extends Component {
     this.state = {
       username: "",
       email: "",
-      password: ""
+      password: "",
+      redirect: false
     };
   }
 
@@ -30,10 +32,22 @@ export class LoginForm extends Component {
     const { username, password, email } = this.state;
     axios.post("/api/register", { username, email, password }).then(user => {
       this.props.updateUser(user.data);
+      this.setState({ redirect: true });
+    });
+  };
+
+  handleLogin = () => {
+    const { email, password } = this.state;
+    axios.post("/api/login", { email, password }).then(res => {
+      this.props.updateUser(res.data);
+      this.setState({ redirect: true });
     });
   };
 
   render() {
+    if (this.state.redirect) {
+      return <Redirect to="/" />;
+    }
     return (
       <div className="form-container">
         <div className="login-container">
@@ -50,7 +64,9 @@ export class LoginForm extends Component {
               placeholder="  Password"
               className="password"
             />
-            <button className="login-btn">Login</button>
+            <button onClick={this.handleLogin} className="login-btn">
+              Login
+            </button>
           </form>
         </div>
         ||||||
@@ -73,7 +89,9 @@ export class LoginForm extends Component {
               placeholder="  Password"
               className="password"
             />
-            <button onClick={this.handleRegister} className="register-btn">Register</button>
+            <button onClick={this.handleRegister} className="register-btn">
+              Register
+            </button>
           </form>
         </div>
       </div>

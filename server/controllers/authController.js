@@ -23,5 +23,30 @@ module.exports = {
               .catch(err => console.log(err));
       })
       .catch(err => console.log(err));
+  },
+  login: (req, res) => {
+    const { email, password } = req.body;
+    const db = req.app.get("db");
+    db.verifyUser([email])
+      .then(user => {
+        if (user.length > 0) {
+          bcrypt.compare(password, user[0].password).then(matched => {
+            if (matched) {
+              req.session.user = {
+                email: user[0].username,
+                password: user[0].password
+              };
+              res.status(200).json(req.session.user);
+            } else {
+              res.status(403).json({
+                error: "CREDENTIALS_DON'T_MATCH"
+              });
+            }
+          });
+        } else {
+          res.status(404).json({ error: "USER_DOES_NOT_EXIST" });
+        }
+      })
+      .catch(err => console.log(err));
   }
 };
