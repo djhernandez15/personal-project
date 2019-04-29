@@ -19,7 +19,7 @@ export class Header extends Component {
         </div>
 
         <div>
-          <i class="fas fa-shopping-cart" />
+          <i className="fas fa-shopping-cart" />
         </div>
       </header>
     );

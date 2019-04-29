@@ -12,17 +12,7 @@
   opacity: 0.85;
   margin-top: 15vh;
 }
-/* .register-container{
-    display:flex;
-    flex-direction: column;
-    height: 50vh;
-    width: 50vh;
-    font-size: 2em;
-    color: white;
-    background: black;
-    opacity: .75;
-    margin-top: 15vh;
-} */
+
 form {
   display: flex;
   flex-direction: column;
@@ -31,18 +21,18 @@ form {
   font-size: 1.2em;
   opacity: 1;
 }
-#password,
-#email,
-#username {
+.password,
+.email,
+.username {
   margin-top: 2vh;
-  width: 10vw;
+  width: 20vw;
   height: 3vh;
   font-size: 0.4em;
   border: none;
   border-radius: 3px;
   background: #61dafb;
 }
-button {
+.login-btn {
   margin-top: 2vh;
   background: #61dafb;
   border-radius: 12px;
@@ -51,3 +41,13 @@ button {
   width: 5vw;
   opacity: 1;
 }
+.register-btn {
+  margin-top: 2vh;
+  background: #61dafb;
+  border-radius: 12px;
+  font-size: 0.5em;
+  padding: 6px;
+  width: 7vw;
+  opacity: 1;
+}
+

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../LandingPage/Header/Header";
 import Nav from "../LandingPage/Nav/Nav";
-import MainLogin from "./MainLogin/MainLogin";
+import LoginBody from "./LoginBody/LoginBody";
 
 export class Login extends Component {
   render() {
@@ -9,7 +9,7 @@ export class Login extends Component {
       <div>
         <Header />
         <Nav />
-        <MainLogin />
+        <LoginBody />
       </div>
     );
   }
