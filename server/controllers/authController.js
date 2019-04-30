@@ -1,4 +1,11 @@
 const bcrypt = require("bcryptjs");
+const axios = require("axios");
+const { AUTH_TOKEN } = process.env;
+let config = {
+  headers: {
+    Authorization: "Bearer " + AUTH_TOKEN
+  }
+};
 module.exports = {
   register: (req, res) => {
     const { username, email, password } = req.body;
@@ -25,15 +32,15 @@ module.exports = {
       .catch(err => console.log(err));
   },
   login: (req, res) => {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
     const db = req.app.get("db");
-    db.verifyUser([email])
+    db.verifyUser([username])
       .then(user => {
         if (user.length > 0) {
           bcrypt.compare(password, user[0].password).then(matched => {
             if (matched) {
               req.session.user = {
-                email: user[0].username,
+                username: user[0].username,
                 password: user[0].password
               };
               res.status(200).json(req.session.user);
@@ -48,5 +55,28 @@ module.exports = {
         }
       })
       .catch(err => console.log(err));
+  },
+  // getBrand: (req, res) => {
+  //   axios
+  //     .get("http://api.wps-inc.com/images/79468", config)
+  //     .then(response => {
+  //       res.status(200).json(response.data)
+  //     })
+  //     .catch(err => {
+  //       console.log(err);
+  //     });
+  // },
+  getImage: (req, res) => {
+    axios
+      .get("http://api.wps-inc.com/images/79468/", config)
+      .then(response => {
+        res.status(200).json(response.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  },
+  getDescription: (req, res) => {
+    axios.get('')
   }
 };

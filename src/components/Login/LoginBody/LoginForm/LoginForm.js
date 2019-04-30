@@ -38,8 +38,8 @@ export class LoginForm extends Component {
 
   handleLogin = () => {
     const { email, password } = this.state;
-    axios.post("/api/login", { email, password }).then(res => {
-      this.props.updateUser(res.data);
+    axios.post("/api/login", { email, password }).then(user => {
+      this.props.updateUser(user.data);
       this.setState({ redirect: true });
     });
   };
@@ -54,9 +54,9 @@ export class LoginForm extends Component {
           <form>
             Login
             <input
-              onChange={this.handleEmail}
-              placeholder="  Email"
-              className="email"
+              onChange={this.handleUsername}
+              placeholder="  Username"
+              className="username"
             />
             <input
               onChange={this.handlePassword}

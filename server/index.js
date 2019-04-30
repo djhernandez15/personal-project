@@ -30,5 +30,7 @@ app.use(
 
 app.post("/api/register", authController.register);
 app.post("/api/login", authController.login);
+// app.get("/api/brands", authController.getBrand);
+app.get("/api/images", authController.getImage);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));

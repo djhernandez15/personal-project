@@ -6,7 +6,7 @@ export class Header extends Component {
   render() {
     return (
       <header className="header-container">
-        <Link to="/" style={{ textDecoration: "none" }}>
+        <Link to="/" style={{ "textDecoration": "none" }}>
           <div className="logo">Brraaap!</div>
         </Link>
         <div className="links">

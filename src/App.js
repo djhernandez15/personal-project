@@ -9,7 +9,7 @@ function App() {
     <Provider store={store}>
       <HashRouter>{routes}</HashRouter>
     </Provider>
-  );
+  )
 }
 
 export default App;

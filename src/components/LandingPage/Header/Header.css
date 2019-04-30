@@ -19,19 +19,22 @@
   text-decoration: none solid rgb(68, 68, 68);
   font-style: normal;
   font-variant: small-caps;
-  text-transform: capitalize;
   margin-left: 5vw;
 }
 .home-link:hover,
-.login-link:hover {
+.login-link:hover,.logo:hover {
+  color: #EE4A34;
+}
+.home-link,
+.login-link {
   color: #61dafb;
 }
 .links {
-  color: #61dafb;
   margin-left: 50vw;
   width: 30vw;
   display: flex;
   justify-content: space-evenly;
+  text-decoration: none;
 }
 
 i {
