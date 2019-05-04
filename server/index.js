@@ -3,7 +3,7 @@ const massive = require("massive");
 const express = require("express");
 const session = require("express-session");
 const authController = require("./controllers/authController");
-const productsController = require('./controllers/productsController')
+const productsController = require("./controllers/productsController");
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
 const app = express();
@@ -34,6 +34,7 @@ app.post("/api/login", authController.login);
 // app.get("/api/brands", authController.getBrand);
 // app.get("/api/images", authController.getImage);
 // app.get('/api/names', authController.getName);
-app.get('/api/helmets', productsController.getHelmets)
+app.get("/api/helmets", productsController.getHelmets);
+app.get("/api/goggles", productsController.getGoggles);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
