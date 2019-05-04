@@ -1,53 +1,35 @@
 import React, { Component } from "react";
-import axios from "axios";
+import { connect } from "react-redux";
+import { getHelmets } from "../../../../ducks/reducers/products";
 
 export class FeaturedProducts extends Component {
   constructor() {
     super();
-    this.state = {
-      brands: [],
-      images: []
-    };
+    this.state = {};
   }
   componentDidMount() {
-    // axios
-    //   .get("/api/getbrands")
-    //   .then(brand => {
-    //     this.setState({ brands: [...this.state.brands, brand.data] });
-    //   })
-    //   .catch(err => {
-    //     console.log(err);
-    //   });
-    axios
-      .get("/api/images")
-      .then(image => {
-        // console.log(image.data.data);
-        this.setState({ images: [...this.state.images, image.data] });
-        // console.log(this.state.images);
-      })
-      .catch(err => {
-        console.log(err);
-      });
+    this.props.getHelmets();
   }
-  render() {
-    // let productImages;
-    let imageUrl;
-    if (this.state.images) {
-      imageUrl = this.state.images.map(image => {
-        console.log(image.data)
-        return "http://" + image.data.domain + image.data.path + "200_max/" + image.data.filename;
-      });
-    }
 
-    // let mappedBrands;
-    // if (this.state.brands) {
-    //   mappedBrands = this.state.brands.map(brand => {
-    //     // console.log(brand.data);
-    //     return <img src={brand} />;
-    //   });
-    // }
-    return <div className="fp-container"><img src={imageUrl} alt='product'/></div>;
+  render() {
+    let mappedProducts = this.props.helmets.map(items => {
+      return (
+        <div className="product-card">
+          <div className="product-desc">{items.brand_name + items.model}</div>
+          <img className="product-image" src={items.image} />
+          <h6>{items.price}</h6>
+          <button>Add to Cart</button>
+        </div>
+      );
+    });
+    return <div className="fp-container">{mappedProducts}</div>;
   }
 }
+const mapStateToProps = reduxState => {
+  return { helmets: reduxState.products.helmets };
+};
 
-export default FeaturedProducts;
+export default connect(
+  mapStateToProps,
+  { getHelmets }
+)(FeaturedProducts);

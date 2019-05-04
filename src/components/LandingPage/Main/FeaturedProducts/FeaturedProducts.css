@@ -1,9 +1,24 @@
 .fp-container {
   background: black;
-  opacity: 0.5;
+  opacity: 0.8;
   width: 75vw;
-  height: 90vh;
-  justify-content: center;
+  height: 150vh;
   margin-top: 30vh;
   color: white;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.product-image {
+  height: 200px;
+  width: 200px;
+}
+
+.product-desc {
+  height: 50px;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

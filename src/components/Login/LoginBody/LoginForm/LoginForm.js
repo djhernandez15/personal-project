@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import "./LoginForm.css";
 import { connect } from "react-redux";
-import { updateUser } from "../../../../ducks/reducers/authReducer";
+import { updateUser } from "../../../../ducks/reducers/userLogin";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
 

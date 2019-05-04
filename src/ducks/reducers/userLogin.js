@@ -1,11 +1,6 @@
 const initialState = {
   user: {},
-  helmets: [],
-  goggles: [],
-  jerseys: [],
-  pants: [],
-  boots: [],
-  gloves: []
+  
 };
 
 //action types
@@ -18,10 +13,9 @@ export function updateUser(user) {
   };
 }
 //reducer
-export default function authReducer(state = initialState, action) {
+export default function userLogin(state = initialState, action) {
   switch (action.type) {
     case UPDATE_USER:
-    console.log(action.payload)
       return {
         ...state,
         user: action.payload
