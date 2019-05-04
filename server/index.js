@@ -36,5 +36,6 @@ app.post("/api/login", authController.login);
 // app.get('/api/names', authController.getName);
 app.get("/api/helmets", productsController.getHelmets);
 app.get("/api/goggles", productsController.getGoggles);
+app.get("/api/jerseys", productsController.getJerseys);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));

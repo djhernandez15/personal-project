@@ -1,18 +1,19 @@
-import React, { Component } from 'react'
-import Header from '../LandingPage/Header/Header';
-import Nav from '../LandingPage/Nav/Nav';
-import Main from './Main/Main';
+import React, { Component } from "react";
+import Header from "../LandingPage/Header/Header";
+import Nav from "../LandingPage/Nav/Nav";
+import Main from "./Main/Main";
+import "./Main/Main.css";
 
 export class Jerseys extends Component {
   render() {
     return (
       <div>
-        <Header/>
-        <Nav/>
-        <Main/>
+        <Header />
+        <Nav />
+        <Main />
       </div>
-    )
+    );
   }
 }
 
-export default Jerseys
+export default Jerseys;

@@ -10,7 +10,8 @@ const initialState = {
 
 //action types
 const GET_HELMETS = "GET_HELMETS";
-const GET_GOGGLES = "GET_GOGGLES"
+const GET_GOGGLES = "GET_GOGGLES";
+const GET_JERSEYS = "GET_JERSEYS";
 //action creators
 export function getHelmets(helmets) {
   return {
@@ -28,6 +29,14 @@ export function getGoggles(goggles) {
     })
   };
 }
+export function getJerseys(jerseys) {
+  return {
+    type: GET_JERSEYS,
+    payload: axios.get("/api/jerseys").catch(err => {
+      console.log(err);
+    })
+  };
+}
 //reducer
 export default function productsReducer(state = initialState, action) {
   switch (action.type) {
@@ -36,10 +45,15 @@ export default function productsReducer(state = initialState, action) {
         ...state,
         helmets: [...action.payload.data]
       };
-      case `${GET_GOGGLES}_FULFILLED`:
+    case `${GET_GOGGLES}_FULFILLED`:
       return {
         ...state,
         goggles: [...action.payload.data]
+      };
+    case `${GET_JERSEYS}_FULFILLED`:
+      return {
+        ...state,
+        jerseys: [...action.payload.data]
       };
     default:
       return state;
