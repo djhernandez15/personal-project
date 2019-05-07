@@ -1,8 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
+import { updateUser } from "../../../ducks/reducers/userLogin";
 import "./Header.css";
+import axios from "axios";
 
 export class Header extends Component {
+  componentDidMount() {
+    axios.get("/api/loggedIn");
+  }
   render() {
     return (
       <header className="header-container">
@@ -27,5 +33,13 @@ export class Header extends Component {
     );
   }
 }
+const mapStateToProps = reduxState => {
+  return {
+    user: reduxState.userLogin.user
+  };
+};
 
-export default Header;
+export default connect(
+  mapStateToProps,
+  { updateUser }
+)(Header);

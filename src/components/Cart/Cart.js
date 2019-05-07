@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Header from "../LandingPage/Header/Header";
 import Nav from "../LandingPage/Nav/Nav";
-import Cart_Main from "./Cart_Main/Cart_Main";
+import CartMain from "./CartMain/CartMain.js";
 
 export class Cart extends Component {
   render() {
@@ -9,7 +9,7 @@ export class Cart extends Component {
       <div>
         <Header />
         <Nav />
-        <Cart_Main />
+        <CartMain />
       </div>
     );
   }

@@ -11,7 +11,7 @@ export class Main extends Component {
       return (
         <div className="product-card">
           <div className="product-desc">{items.brand_name + items.model}</div>
-          <img className="product-image" src={items.image} />
+          <img className="product-image" src={items.image} alt={items.model}/>
           <h6>${items.price}</h6>
           <button>Add to Cart</button>
         </div>

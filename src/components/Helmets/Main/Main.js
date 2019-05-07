@@ -7,18 +7,16 @@ export class Main extends Component {
     this.props.getHelmets();
   }
 
-  handleClick = helmet => {
-    this.props.addItemToCart(helmet);
-  };
-
   render() {
-    let mappedProducts = this.props.helmets.map(items => {
+    let mappedProducts = this.props.helmets.map((items, index) => {
       return (
-        <div className="product-card">
+        <div className="product-card" key={index}>
           <div className="product-desc">{items.brand_name + items.model}</div>
-          <img className="product-image" src={items.image} />
+          <img className="product-image" src={items.image} alt={items.model} />
           <h6>${items.price}</h6>
-          <button onClick={this.handleClick}>Add to Cart</button>
+          <button onClick={() => this.props.addItemToCart(items)}>
+            Add to Cart
+          </button>
         </div>
       );
     });

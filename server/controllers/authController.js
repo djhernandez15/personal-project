@@ -15,7 +15,8 @@ module.exports = {
                   .then(() => {
                     req.session.user = {
                       username,
-                      email
+                      email,
+                      cart: []
                     };
                     res.status(200).json(req.session.user);
                   })
@@ -33,10 +34,8 @@ module.exports = {
         if (user.length > 0) {
           bcrypt.compare(password, user[0].password).then(matched => {
             if (matched) {
-              req.session.user = {
-                username: user[0].username,
-                password: user[0].password
-              };
+              req.session.user.username = user[0].username;
+              console.log(req.session.user);
               res.status(200).json(req.session.user);
             } else {
               res.status(403).json({
@@ -49,5 +48,8 @@ module.exports = {
         }
       })
       .catch(err => console.log(err));
+  },
+  loggedIn: (req, res) => {
+    res.status(200).json(req.session.user);
   }
 };

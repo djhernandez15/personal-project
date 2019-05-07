@@ -66,6 +66,19 @@ module.exports = {
       });
   },
   addItemToCart: (req, res) => {
-    console.log(req.body);
+    const { sku, model, price, brand, image, brand_name } = req.body;
+    req.session.user.cart.push({
+      sku,
+      model,
+      price,
+      brand,
+      image,
+      brand_name
+    });
+    console.log(req.session.user.cart);
+    res.json(req.session.user.cart);
+  },
+  getCartItems: (req, res) => {
+    res.json(req.session.user.cart);
   }
 };

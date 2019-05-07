@@ -4,6 +4,7 @@ const express = require("express");
 const session = require("express-session");
 const authController = require("./controllers/authController");
 const productsController = require("./controllers/productsController");
+const checkForSession = require("./middleware/checkForSession");
 const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
 const app = express();
@@ -21,16 +22,18 @@ massive(CONNECTION_STRING)
 app.use(
   session({
     resave: true,
-    saveUninitialized: false,
+    saveUninitialized: true,
     secret: SESSION_SECRET,
     cookie: {
       maxAge: 1000 * 60 * 60 * 24 * 7
     }
   })
 );
+app.use(checkForSession);
 
 app.post("/api/register", authController.register);
 app.post("/api/login", authController.login);
+app.get("/api/loggedin", authController.loggedIn);
 // app.get("/api/brands", authController.getBrand);
 // app.get("/api/images", authController.getImage);
 // app.get('/api/names', authController.getName);
@@ -41,5 +44,6 @@ app.get("/api/pants", productsController.getPants);
 app.get("/api/boots", productsController.getBoots);
 app.get("/api/gloves", productsController.getGloves);
 app.post("/api/cart", productsController.addItemToCart);
+app.get("/api/cart", productsController.getCartItems);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));

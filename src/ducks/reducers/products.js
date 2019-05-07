@@ -17,8 +17,9 @@ const GET_PANTS = "GET_PANTS";
 const GET_BOOTS = "GET_BOOTS";
 const GET_GLOVES = "GET_GLOVES";
 const ADD_PRODUCTS = "ADD_PRODUCTS";
+const GET_PRODUCTS = "GET_PRODUCTS";
 //action creators
-export function getHelmets(helmets) {
+export function getHelmets() {
   return {
     type: GET_HELMETS,
     payload: axios.get("/api/helmets").catch(err => {
@@ -26,7 +27,7 @@ export function getHelmets(helmets) {
     })
   };
 }
-export function getGoggles(goggles) {
+export function getGoggles() {
   return {
     type: GET_GOGGLES,
     payload: axios.get("/api/goggles").catch(err => {
@@ -34,7 +35,7 @@ export function getGoggles(goggles) {
     })
   };
 }
-export function getJerseys(jerseys) {
+export function getJerseys() {
   return {
     type: GET_JERSEYS,
     payload: axios.get("/api/jerseys").catch(err => {
@@ -42,7 +43,7 @@ export function getJerseys(jerseys) {
     })
   };
 }
-export function getPants(pants) {
+export function getPants() {
   return {
     type: GET_PANTS,
     payload: axios.get("/api/pants").catch(err => {
@@ -50,7 +51,7 @@ export function getPants(pants) {
     })
   };
 }
-export function getBoots(boots) {
+export function getBoots() {
   return {
     type: GET_BOOTS,
     payload: axios.get("/api/boots").catch(err => {
@@ -58,7 +59,7 @@ export function getBoots(boots) {
     })
   };
 }
-export function getGloves(gloves) {
+export function getGloves() {
   return {
     type: GET_GLOVES,
     payload: axios.get("/api/gloves").catch(err => {
@@ -67,9 +68,18 @@ export function getGloves(gloves) {
   };
 }
 export function addItemToCart(item) {
+  console.log("HIT");
   return {
     type: ADD_PRODUCTS,
     payload: axios.post("/api/cart", item).catch(err => {
+      console.log(err);
+    })
+  };
+}
+export function getCartItems() {
+  return {
+    type: GET_PRODUCTS,
+    payload: axios.get("/api/cart").catch(err => {
       console.log(err);
     })
   };
@@ -108,9 +118,15 @@ export default function productsReducer(state = initialState, action) {
         gloves: [...action.payload.data]
       };
     case `${ADD_PRODUCTS}_FULFILLED`:
+      console.log(action.payload);
       return {
         ...state,
-        cart: [...action.payload]
+        cart: [...action.payload.data]
+      };
+    case `${GET_PRODUCTS}_FULFILLED`:
+      return {
+        ...state,
+        cart: [...action.payload.data]
       };
     default:
       return state;
