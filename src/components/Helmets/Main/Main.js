@@ -1,11 +1,16 @@
 import React, { Component } from "react";
-import { getHelmets } from "../../../ducks/reducers/products";
+import { getHelmets, addItemToCart } from "../../../ducks/reducers/products";
 import { connect } from "react-redux";
 
 export class Main extends Component {
   componentDidMount() {
     this.props.getHelmets();
   }
+
+  handleClick = helmet => {
+    this.props.addItemToCart(helmet);
+  };
+
   render() {
     let mappedProducts = this.props.helmets.map(items => {
       return (
@@ -13,7 +18,7 @@ export class Main extends Component {
           <div className="product-desc">{items.brand_name + items.model}</div>
           <img className="product-image" src={items.image} />
           <h6>${items.price}</h6>
-          <button>Add to Cart</button>
+          <button onClick={this.handleClick}>Add to Cart</button>
         </div>
       );
     });
@@ -25,10 +30,12 @@ export class Main extends Component {
   }
 }
 const mapStateToProps = reduxState => {
-  return { helmets: reduxState.products.helmets };
+  return {
+    helmets: reduxState.products.helmets
+  };
 };
 
 export default connect(
   mapStateToProps,
-  { getHelmets }
+  { getHelmets, addItemToCart }
 )(Main);

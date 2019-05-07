@@ -1,0 +1,39 @@
+
+.gloves-container {
+    background: black;
+    opacity: 0.8;
+    width: 75vw;
+    height: 150vh;
+    margin-top: 30vh;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+  
+  .product-image {
+    height: 200px;
+    width: 200px;
+  }
+  
+  .product-desc {
+    height: 50px;
+    max-width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .gloves-body {
+    background: url("https://images.unsplash.com/photo-1543076563-8a29893e162d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=80")
+      no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    border: solid 2px blue;
+    height: 200vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }

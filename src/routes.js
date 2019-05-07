@@ -8,13 +8,15 @@ import Jerseys from "./components/Jerseys/Jerseys";
 import Pants from "./components/Pants/Pants";
 import Boots from "./components/Boots/Boots";
 import Gloves from "./components/Gloves/Gloves";
+import Cart from "./components/Cart/Cart";
 
 export default (
   <Switch>
-    <Route path="/gloves" component={Gloves}/>
-    <Route path="/boots" component={Boots}/>
-    <Route path="/pants" component={Pants}/>
-    <Route path="/jerseys" component={Jerseys}/>
+    <Route path="/cart" component={Cart} />
+    <Route path="/gloves" component={Gloves} />
+    <Route path="/boots" component={Boots} />
+    <Route path="/pants" component={Pants} />
+    <Route path="/jerseys" component={Jerseys} />
     <Route path="/goggles" component={Goggles} />
     <Route path="/helmets" component={Helmets} />
     <Route path="/login" component={Login} />

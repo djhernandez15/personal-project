@@ -1,0 +1,38 @@
+.boots-container {
+  background: white;
+  opacity: 0.8;
+  width: 75vw;
+  height: 150vh;
+  margin-top: 30vh;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.product-image {
+  height: 200px;
+  width: 200px;
+}
+
+.product-desc {
+  height: 50px;
+  max-width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.boots-body {
+  background: url("https://images.pexels.com/photos/1992396/pexels-photo-1992396.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=2500")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  border: solid 2px blue;
+  height: 200vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

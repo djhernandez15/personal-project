@@ -1,12 +1,5 @@
 const bcrypt = require("bcryptjs");
-// const axios = require("axios");
-// const { AUTH_TOKEN } = process.env;
-// let config = {
-//   headers: {
-//     Authorization: "Bearer " + AUTH_TOKEN
-//   }
-// };
-// const db = req.app.get("db");
+
 module.exports = {
   register: (req, res) => {
     const { username, email, password } = req.body;

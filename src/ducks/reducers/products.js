@@ -5,13 +5,18 @@ const initialState = {
   jerseys: [],
   pants: [],
   boots: [],
-  gloves: []
+  gloves: [],
+  cart: []
 };
 
 //action types
 const GET_HELMETS = "GET_HELMETS";
 const GET_GOGGLES = "GET_GOGGLES";
 const GET_JERSEYS = "GET_JERSEYS";
+const GET_PANTS = "GET_PANTS";
+const GET_BOOTS = "GET_BOOTS";
+const GET_GLOVES = "GET_GLOVES";
+const ADD_PRODUCTS = "ADD_PRODUCTS";
 //action creators
 export function getHelmets(helmets) {
   return {
@@ -37,6 +42,38 @@ export function getJerseys(jerseys) {
     })
   };
 }
+export function getPants(pants) {
+  return {
+    type: GET_PANTS,
+    payload: axios.get("/api/pants").catch(err => {
+      console.log(err);
+    })
+  };
+}
+export function getBoots(boots) {
+  return {
+    type: GET_BOOTS,
+    payload: axios.get("/api/boots").catch(err => {
+      console.log(err);
+    })
+  };
+}
+export function getGloves(gloves) {
+  return {
+    type: GET_GLOVES,
+    payload: axios.get("/api/gloves").catch(err => {
+      console.log(err);
+    })
+  };
+}
+export function addItemToCart(item) {
+  return {
+    type: ADD_PRODUCTS,
+    payload: axios.post("/api/cart", item).catch(err => {
+      console.log(err);
+    })
+  };
+}
 //reducer
 export default function productsReducer(state = initialState, action) {
   switch (action.type) {
@@ -54,6 +91,26 @@ export default function productsReducer(state = initialState, action) {
       return {
         ...state,
         jerseys: [...action.payload.data]
+      };
+    case `${GET_PANTS}_FULFILLED`:
+      return {
+        ...state,
+        pants: [...action.payload.data]
+      };
+    case `${GET_BOOTS}_FULFILLED`:
+      return {
+        ...state,
+        boots: [...action.payload.data]
+      };
+    case `${GET_GLOVES}_FULFILLED`:
+      return {
+        ...state,
+        gloves: [...action.payload.data]
+      };
+    case `${ADD_PRODUCTS}_FULFILLED`:
+      return {
+        ...state,
+        cart: [...action.payload]
       };
     default:
       return state;

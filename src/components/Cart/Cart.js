@@ -1,19 +1,18 @@
 import React, { Component } from "react";
 import Header from "../LandingPage/Header/Header";
 import Nav from "../LandingPage/Nav/Nav";
-import Main from "./Main/Main";
-import "./Main/Main.css";
+import Cart_Main from "./Cart_Main/Cart_Main";
 
-export class Gloves extends Component {
+export class Cart extends Component {
   render() {
     return (
       <div>
         <Header />
         <Nav />
-        <Main />
+        <Cart_Main />
       </div>
     );
   }
 }
 
-export default Gloves;
+export default Cart;
