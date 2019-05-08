@@ -1,6 +1,6 @@
 .helmets-container {
-  background: black;
-  opacity: 0.8;
+  background: #333;
+  opacity: 0.98;
   width: 75vw;
   height: 150vh;
   margin-top: 30vh;
@@ -31,7 +31,6 @@
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  border: solid 2px blue;
   height: 200vh;
   display: flex;
   flex-direction: column;

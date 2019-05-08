@@ -21,7 +21,7 @@ massive(CONNECTION_STRING)
 
 app.use(
   session({
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     secret: SESSION_SECRET,
     cookie: {
