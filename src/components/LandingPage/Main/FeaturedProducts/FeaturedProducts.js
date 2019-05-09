@@ -1,31 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getHelmets } from "../../../../ducks/reducers/products";
 
 export class FeaturedProducts extends Component {
-  componentDidMount() {
-    this.props.getHelmets();
-  }
+  componentDidMount() {}
 
   render() {
-    let mappedProducts = this.props.helmets.map((items, index) => {
-      return (
-        <div className="product-card" key={index}>
-          <div className="product-desc">{items.brand_name + items.model}</div>
-          <img className="product-image" src={items.image} alt={items.model} />
-          <h6>{items.price}</h6>
-          <button>Add to Cart</button>
-        </div>
-      );
-    });
-    return <div className="fp-container">{mappedProducts}</div>;
+    return (
+      <div className="fp-container">
+        <img src="https://www.arrivealive.co.za/ckfinder/userfiles/images/Atgatt%20biketalk.JPG" />
+        Hello
+      </div>
+    );
   }
 }
-const mapStateToProps = reduxState => {
-  return { helmets: reduxState.products.helmets };
-};
+const mapStateToProps = reduxState => {};
 
-export default connect(
-  mapStateToProps,
-  { getHelmets }
-)(FeaturedProducts);
+export default connect()(FeaturedProducts);

@@ -1,13 +1,12 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import { updateUser } from "../../../ducks/reducers/userLogin";
+import { checkUser } from "../../../ducks/reducers/userLogin";
 import "./Header.css";
-import axios from "axios";
 
 export class Header extends Component {
   componentDidMount() {
-    axios.get("/api/loggedIn");
+    this.props.checkUser();
   }
   render() {
     return (
@@ -41,5 +40,5 @@ const mapStateToProps = reduxState => {
 
 export default connect(
   mapStateToProps,
-  { updateUser }
+  { checkUser }
 )(Header);

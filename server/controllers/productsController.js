@@ -80,5 +80,13 @@ module.exports = {
   },
   getCartItems: (req, res) => {
     res.json(req.session.user.cart);
+  },
+  deleteItem: (req, res) => {
+    let itemSku = +req.params.sku;
+    let index = req.session.user.cart.findIndex(
+      (item, index) => itemSku === req.session.user.cart[index].sku
+    );
+    req.session.user.cart.splice(index, 1);
+    res.json(req.session.user.cart);
   }
 };

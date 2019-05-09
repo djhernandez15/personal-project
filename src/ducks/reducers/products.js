@@ -18,6 +18,8 @@ const GET_BOOTS = "GET_BOOTS";
 const GET_GLOVES = "GET_GLOVES";
 const ADD_PRODUCTS = "ADD_PRODUCTS";
 const GET_PRODUCTS = "GET_PRODUCTS";
+const DELETE_PRODUCTS = "DELETE_PRODUCTS";
+const GET_SUBTOTAL = "GET_SUBTOTAL";
 //action creators
 export function getHelmets() {
   return {
@@ -68,7 +70,6 @@ export function getGloves() {
   };
 }
 export function addItemToCart(item) {
-  console.log("HIT");
   return {
     type: ADD_PRODUCTS,
     payload: axios.post("/api/cart", item).catch(err => {
@@ -82,6 +83,12 @@ export function getCartItems() {
     payload: axios.get("/api/cart").catch(err => {
       console.log(err);
     })
+  };
+}
+export function deleteItem(item) {
+  return {
+    type: DELETE_PRODUCTS,
+    payload: axios.delete(`/api/cart/${item.sku}`, item)
   };
 }
 //reducer
@@ -118,12 +125,16 @@ export default function productsReducer(state = initialState, action) {
         gloves: [...action.payload.data]
       };
     case `${ADD_PRODUCTS}_FULFILLED`:
-      console.log(action.payload);
       return {
         ...state,
         cart: [...action.payload.data]
       };
     case `${GET_PRODUCTS}_FULFILLED`:
+      return {
+        ...state,
+        cart: [...action.payload.data]
+      };
+    case `${DELETE_PRODUCTS}_FULFILLED`:
       return {
         ...state,
         cart: [...action.payload.data]

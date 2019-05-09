@@ -45,5 +45,6 @@ app.get("/api/boots", productsController.getBoots);
 app.get("/api/gloves", productsController.getGloves);
 app.post("/api/cart", productsController.addItemToCart);
 app.get("/api/cart", productsController.getCartItems);
+app.delete("/api/cart/:sku", productsController.deleteItem);
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
