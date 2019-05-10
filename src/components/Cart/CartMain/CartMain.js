@@ -1,18 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getCartItems, deleteItem } from "../../../ducks/reducers/products";
+import { getCartItems, deleteItem } from "../../../ducks/reducers/userLogin";
 import { checkUser } from "../../../ducks/reducers/userLogin";
 
 export class CartMain extends Component {
-  constructor() {
-    super();
-    this.state = {
-      cart: []
-    };
-  }
   componentDidMount() {
-    console.log(this.props.getCartItems());
     this.props.getCartItems();
+    this.props.checkUser();
   }
 
   render() {
@@ -39,14 +33,17 @@ export class CartMain extends Component {
         </div>
       );
     });
+    // let mappedTotal = this.state.cart.map((item, index) => {
+    //   console.log(mappedTotal);
+    // });
 
     return <div>{mappedCart}</div>;
   }
 }
 const mapStateToProps = reduxState => {
   return {
-    cart: reduxState.products.cart
-    // user: reduxState.userLogin.user
+    cart: reduxState.userLogin.cart,
+    username: reduxState.userLogin.username
   };
 };
 

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import { getHelmets, addItemToCart } from "../../../ducks/reducers/products";
+import { getHelmets } from "../../../ducks/reducers/products";
+import { addItemToCart } from "../../../ducks/reducers/userLogin";
 import { connect } from "react-redux";
 
 export class Main extends Component {

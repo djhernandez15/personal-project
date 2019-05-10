@@ -34,7 +34,7 @@ export class Header extends Component {
 }
 const mapStateToProps = reduxState => {
   return {
-    user: reduxState.userLogin.user
+    username: reduxState.userLogin.username
   };
 };
 

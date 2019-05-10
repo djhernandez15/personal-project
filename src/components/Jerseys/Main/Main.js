@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getJerseys } from "../../../ducks/reducers/products";
+import { addItemToCart } from "../../../ducks/reducers/userLogin";
 import { connect } from "react-redux";
 
 export class Main extends Component {
@@ -11,9 +12,11 @@ export class Main extends Component {
       return (
         <div className="product-card">
           <div className="product-desc">{items.brand_name + items.model}</div>
-          <img className="product-image" src={items.image} alt={items.model}/>
+          <img className="product-image" src={items.image} alt={items.model} />
           <h6>${items.price}</h6>
-          <button>Add to Cart</button>
+          <button onClick={() => this.props.addItemToCart(items)}>
+            Add to Cart
+          </button>
         </div>
       );
     });
@@ -30,5 +33,5 @@ const mapStateToProps = reduxState => {
 
 export default connect(
   mapStateToProps,
-  { getJerseys }
+  { getJerseys, addItemToCart }
 )(Main);

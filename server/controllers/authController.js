@@ -14,6 +14,7 @@ module.exports = {
                 db.registerUser([username, email, newPass])
                   .then(() => {
                     req.session.user = {
+                      id,
                       username,
                       email
                     };
@@ -33,7 +34,6 @@ module.exports = {
         if (user.length > 0) {
           bcrypt.compare(password, user[0].password).then(matched => {
             if (matched) {
-              // req.session.user.username = user[0].username;
               req.session.user = {
                 username: user[0].username,
                 cart: []
@@ -53,5 +53,20 @@ module.exports = {
   },
   loggedIn: (req, res) => {
     res.status(200).json(req.session.user);
+  },
+  editUser: (req, res) => {
+    const db = req.app.get("db");
+    const currUsername = req.session.user.username;
+    const { newUsername } = req.body;
+    db.editUser([newUsername, currUsername]).then(user => {
+      req.session.user = user[0].username;
+      res.status(200).json(req.session.user);
+    });
+
+    // db.editUser([username]).then(
+    //   (req.session.user = { username: user[0].username, cart: [] }).then(
+    //     res.json(req.session.user)
+    //   )
+    // );
   }
 };

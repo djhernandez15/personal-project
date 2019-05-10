@@ -1,0 +1,8 @@
+.body {
+    display: flex;
+    justify-content: center;
+}
+.cart-product-card {
+  border: solid 1px red;
+  width: 75vw;
+}

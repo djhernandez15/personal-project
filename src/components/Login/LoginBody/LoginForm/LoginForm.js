@@ -39,7 +39,6 @@ export class LoginForm extends Component {
   handleLogin = () => {
     const { username, password } = this.state;
     axios.post("/api/login", { username, password }).then(user => {
-      console.log(user);
       this.props.updateUser(user.data);
       this.setState({ redirect: true });
     });
@@ -47,7 +46,7 @@ export class LoginForm extends Component {
 
   render() {
     if (this.state.redirect) {
-      return <Redirect to="/" />;
+      return <Redirect to="/profile" />;
     }
     return (
       <div className="form-container">

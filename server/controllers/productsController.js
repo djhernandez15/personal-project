@@ -75,11 +75,10 @@ module.exports = {
       image,
       brand_name
     });
-    console.log(req.session.user.cart);
-    res.json(req.session.user.cart);
+    res.json(req.session.user);
   },
   getCartItems: (req, res) => {
-    res.json(req.session.user.cart);
+    res.json(req.session.user);
   },
   deleteItem: (req, res) => {
     let itemSku = +req.params.sku;
@@ -87,6 +86,6 @@ module.exports = {
       (item, index) => itemSku === req.session.user.cart[index].sku
     );
     req.session.user.cart.splice(index, 1);
-    res.json(req.session.user.cart);
+    res.json(req.session.user);
   }
 };

@@ -9,9 +9,11 @@ import Pants from "./components/Pants/Pants";
 import Boots from "./components/Boots/Boots";
 import Gloves from "./components/Gloves/Gloves";
 import Cart from "./components/Cart/Cart";
+import Profile from "./components/Profile/Profile";
 
 export default (
   <Switch>
+    <Route path="/profile" component={Profile} />
     <Route path="/cart" component={Cart} />
     <Route path="/gloves" component={Gloves} />
     <Route path="/boots" component={Boots} />

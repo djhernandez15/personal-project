@@ -7,12 +7,15 @@ export class FeaturedProducts extends Component {
   render() {
     return (
       <div className="fp-container">
-        <img src="https://www.arrivealive.co.za/ckfinder/userfiles/images/Atgatt%20biketalk.JPG" />
+        <img
+          src="https://www.arrivealive.co.za/ckfinder/userfiles/images/Atgatt%20biketalk.JPG"
+          alt="road-rash"
+        />
         Hello
       </div>
     );
   }
 }
-const mapStateToProps = reduxState => {};
+// const mapStateToProps = reduxState => {};
 
 export default connect()(FeaturedProducts);
