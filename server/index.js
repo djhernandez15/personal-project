@@ -1,3 +1,4 @@
+// const path = require("path");
 require("dotenv").config();
 const massive = require("massive");
 const express = require("express");
@@ -9,6 +10,8 @@ const { CONNECTION_STRING, SESSION_SECRET, SERVER_PORT } = process.env;
 
 const app = express();
 app.use(express.json());
+
+app.use(express.static(`${__dirname}/../build`));
 
 app.use(
   session({
@@ -48,5 +51,9 @@ app.get("/api/boots", productsController.getBoots);
 app.get("/api/gloves", productsController.getGloves);
 app.post("/api/cart", productsController.addItemToCart);
 app.get("/api/cart", productsController.getCartItems);
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "../build/index.html"));
+// });
 
 app.listen(SERVER_PORT, () => console.log(`Listening on Port ${SERVER_PORT}`));
