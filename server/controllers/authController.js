@@ -1,9 +1,39 @@
 const bcrypt = require("bcryptjs");
+const nodemailer = require("nodemailer");
+require("dotenv").config();
 
 module.exports = {
   register: (req, res) => {
     const { username, email, password } = req.body;
     const db = req.app.get("db");
+
+    let transporter = nodemailer.createTransport({
+      service: "gmail",
+      auth: {
+        user: process.env.NODEMAILER_EMAIL,
+        pass: process.env.NODEMAILER_PW
+      }
+    });
+
+    let mailOptions = {
+      from: process.env.NODEMAILER_EMAIL,
+      to: `${email}`,
+      subject: "Thank you for registering on Brraaap!",
+      html: `<h3>Dear ${username},</h3><br>
+             <h3>Thank you for registering with Brraaap.info, your first stop shop for MX and offroad apparel!</h3><br>
+             <p>Check with us frequently as we have an increasing inventory and weekly discount sales.</p><br>
+             <p>Now that you have registered, you can enjoy savings on all your favorite MX apparel brands!</p><br>
+             <p>Click <u>here</u> to get a complimentary key tag from Brraaap.info!</p>`
+    };
+
+    transporter.sendMail(mailOptions, (err, data) => {
+      if (err) {
+        console.log("Error Occurs");
+      } else {
+        console.log("Email sent");
+      }
+    });
+
     db.verifyUser([username])
       .then(users => {
         users.length > 0
@@ -14,7 +44,6 @@ module.exports = {
                 db.registerUser([username, email, newPass])
                   .then(() => {
                     req.session.user = {
-                      id,
                       username,
                       email
                     };

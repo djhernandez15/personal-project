@@ -1,15 +1,18 @@
 .form-container {
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 .login-container,
 .register-container {
   display: flex column;
   height: 50vh;
-  width: 50vh;
-  font-size: 2em;
+  width: 60%;
+  font-size: 3vw;
   color: white;
   background: #000;
-  opacity: 0.85;
+  opacity: 0.95;
   margin-top: 15vh;
 }
 
@@ -25,7 +28,7 @@ form {
 .email,
 .username {
   margin-top: 2vh;
-  width: 20vw;
+  width: 35vw;
   height: 3vh;
   font-size: 0.4em;
   border: none;
@@ -33,21 +36,30 @@ form {
   background: #61dafb;
 }
 .login-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 2vh;
   background: #61dafb;
   border-radius: 12px;
-  font-size: 0.5em;
+  font-size: 2vw;
   padding: 6px;
-  width: 5vw;
+  width: 10vw;
   opacity: 1;
+}
+.login-btn:hover,
+.register-btn:hover {
+  background: white;
 }
 .register-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-top: 2vh;
   background: #61dafb;
   border-radius: 12px;
-  font-size: 0.5em;
+  font-size: 2vw;
   padding: 6px;
-  width: 7vw;
+  width: 13vw;
   opacity: 1;
 }
-

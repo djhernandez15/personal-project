@@ -7,11 +7,10 @@ export class FeaturedProducts extends Component {
   render() {
     return (
       <div className="fp-container">
-        <img
+        <img className='fp-img'
           src="https://www.arrivealive.co.za/ckfinder/userfiles/images/Atgatt%20biketalk.JPG"
           alt="road-rash"
         />
-        Hello
       </div>
     );
   }

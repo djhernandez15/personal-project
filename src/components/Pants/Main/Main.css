@@ -35,3 +35,71 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (max-width: 2100px) {
+  .product-card {
+    width: 20vw;
+  }
+  .pants-container {
+    height: 250vh;
+  }
+  .pants-body {
+    height: 300vh;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .product-card {
+    width: 30vw;
+  }
+  .pants-container {
+    margin-top: 5vh;
+    height: 345vh;
+  }
+  .pants-body {
+    height: 375vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product-card {
+    width: 50vw;
+  }
+  .pants-container {
+    margin-top: 5vh;
+    height: 710vh;
+  }
+  .pants-body {
+    height: 750vh;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .pants-body {
+    height: 600vh;
+  }
+  .pants-container {
+    width: 100vw;
+    margin-top: 0vh;
+  }
+  .product-card {
+    width: 100vw;
+  }
+  .product-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (min-height: 800px) {
+  .pants-body {
+    height: 480vh;
+  }
+  .pants-container {
+    display: block;
+    height: 480vh;
+  }
+  .product-card {
+    margin-top: 5vh;
+  }
+}

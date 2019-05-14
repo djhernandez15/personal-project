@@ -3,7 +3,7 @@
   justify-content: space-evenly;
   align-items: center;
   height: 8vh;
-  font-size: 1.8em;
+  font-size: 3vw;
   font-weight: 600;
   background: #61dafb;
 }
@@ -17,4 +17,14 @@
 
   color: #ee4a34;
   text-decoration: underline solid black;
+}
+
+@media screen and (min-width: 375px) {
+  .helmets-link,
+  .goggles-link,
+  .jerseys-link,
+  .pants-link,
+  .boots-link,
+  .gloves-link {
+  }
 }

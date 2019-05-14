@@ -12,24 +12,27 @@ export class CartMain extends Component {
   render() {
     let mappedCart = this.props.cart.map((item, index) => {
       return (
-        <div className="cart-product-card" key={index}>
-          <div className="cart-product-desc">
-            {item.brand_name + item.model}
+        <div className='cart-product-body'>
+          <div className="cart-product-card" key={index}>
+            <img
+              className="cart-product-image"
+              src={item.image}
+              alt={item.model}
+            />
+            <div className="cart-product-desc">
+              {item.brand_name + item.model}
+            </div>
+            <h6 className="cart-product-price">${item.price}</h6>
+            <button
+              className="cart-button"
+              onClick={() => {
+                this.props.deleteItem(item);
+                this.props.checkUser();
+              }}
+            >
+              X
+            </button>
           </div>
-          <img
-            className="cart-product-image"
-            src={item.image}
-            alt={item.model}
-          />
-          <h6 className="cart-product-price">${item.price}</h6>
-          <button
-            onClick={() => {
-              this.props.deleteItem(item);
-              this.props.checkUser();
-            }}
-          >
-            X
-          </button>
         </div>
       );
     });
