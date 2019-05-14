@@ -91,7 +91,7 @@
   }
 }
 
-@media screen and (min-height: 800px) {
+/* @media screen and (min-height: 800px) {
   .pants-body {
     height: 480vh;
   }
@@ -102,4 +102,4 @@
   .product-card {
     margin-top: 5vh;
   }
-}
+} */
