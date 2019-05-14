@@ -53,7 +53,7 @@ button:hover {
   background: #ee4a34;
 }
 
-@media screen and (max-width: 2100px) {
+/* @media screen and (max-width: 2100px) {
   .product-card {
     width: 20vw;
   }
@@ -63,7 +63,7 @@ button:hover {
   .helmets-body {
     height: 300vh;
   }
-}
+} */
 
 @media screen and (max-width: 880px) {
   .product-card {
@@ -116,7 +116,7 @@ button:hover {
   }
 }
 
-@media screen and (min-height: 810px) {
+@media screen and (min-height: 2100px) {
   .helmets-body {
     height: 480vh;
   }
