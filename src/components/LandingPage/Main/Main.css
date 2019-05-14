@@ -1,12 +1,13 @@
 .home-body {
-  background: url("https://images.unsplash.com/photo-1551239741-60537adebdb2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2000&q=60") no-repeat center
-    center fixed;
+  background: url("https://www.alpinestars.com/media/wysiwyg/CLP-page/motocross-clp/mx_hero_1.jpg")
+    no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  height: 200vh;
+  height: 250vh;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+

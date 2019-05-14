@@ -35,3 +35,71 @@
   flex-direction: column;
   align-items: center;
 }
+
+@media screen and (max-width: 2100px) {
+  .product-card {
+    width: 20vw;
+  }
+  .goggles-container {
+    height: 250vh;
+  }
+  .goggles-body {
+    height: 300vh;
+  }
+}
+
+@media screen and (max-width: 880px) {
+  .product-card {
+    width: 30vw;
+  }
+  .goggles-container {
+    margin-top: 5vh;
+    height: 345vh;
+  }
+  .goggles-body {
+    height: 375vh;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product-card {
+    width: 50vw;
+  }
+  .goggles-container {
+    margin-top: 5vh;
+    height: 710vh;
+  }
+  .goggles-body {
+    height: 750vh;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .goggles-body {
+    height: 600vh;
+  }
+  .goggles-container {
+    width: 100vw;
+    margin-top: 0vh;
+  }
+  .product-card {
+    width: 100vw;
+  }
+  .product-image {
+    width: 150px;
+    height: 150px;
+  }
+}
+
+@media screen and (min-height: 810px) {
+  .goggles-body {
+    height: 480vh;
+  }
+  .goggles-container {
+    display: block;
+    height: 480vh;
+  }
+  .product-card {
+    margin-top: 5vh;
+  }
+}

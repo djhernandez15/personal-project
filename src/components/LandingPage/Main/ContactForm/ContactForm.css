@@ -1,22 +1,26 @@
-.contact-footer {
-  border: solid 1px red;
-  opacity: .9;
+/* .contact-footer {
   width: 100vw;
   display: flex;
   justify-content: center;
-  margin-top: 10vh;
+  align-items: center;
+  margin-top: 12vh;
 }
 .contact-form {
   background: black;
-  border: solid 1px red;
   width: 40vw;
   height: 40vh;
   display: flex;
   flex-direction: column;
+
 }
 .name-input {
 }
 .email-input {
 }
 .message-input {
-}
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+} */
