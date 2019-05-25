@@ -11,3 +11,13 @@
   align-items: center;
 }
 
+@media screen and (min-width: 350px) {
+  .home-body {
+    background: url("https://images.unsplash.com/photo-1435244837924-21c508f9db25?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80")
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  }
+}

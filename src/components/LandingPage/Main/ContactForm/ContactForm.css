@@ -1,4 +1,4 @@
-/* .contact-footer {
+.contact-footer {
   width: 100vw;
   display: flex;
   justify-content: center;
@@ -6,21 +6,25 @@
   margin-top: 12vh;
 }
 .contact-form {
-  background: black;
+  border: solid 1px red;
+  background: rgba(0, 0, 0, 0.8);
   width: 40vw;
   height: 40vh;
   display: flex;
   flex-direction: column;
-
+  justify-content: space-evenly;
 }
 .name-input {
+  border: solid 1px red;
 }
 .email-input {
+  border: solid 1px red;
 }
 .message-input {
+  border: solid 1px red;
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-} */
+}

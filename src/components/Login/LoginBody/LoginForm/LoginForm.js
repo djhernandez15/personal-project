@@ -4,6 +4,17 @@ import { connect } from "react-redux";
 import { updateUser } from "../../../../ducks/reducers/userLogin";
 import axios from "axios";
 import { Redirect } from "react-router-dom";
+import { StatefulInput } from "baseui/input";
+import { Button } from "baseui/button";
+import { Block } from "baseui/block";
+import { styled } from "baseui";
+
+const Centered = styled("div", {
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100%"
+});
 
 export class LoginForm extends Component {
   constructor() {
@@ -49,52 +60,61 @@ export class LoginForm extends Component {
       return <Redirect to="/profile" />;
     }
     return (
-      <div className="form-container">
-        <div className="login-container">
-          <form>
-            Login
-            <input
-              onChange={this.handleUsername}
-              placeholder="  Username"
-              className="username"
-            />
-            <input
-              onChange={this.handlePassword}
-              type="password"
-              placeholder="  Password"
-              className="password"
-            />
-            <button onClick={this.handleLogin} className="login-btn">
-              Login
-            </button>
-          </form>
+      <Centered>
+        <div className="form-container">
+          <div className="login-container">
+            <form>
+              <h3>Login</h3>
+              <StatefulInput
+                onChange={this.handleUsername}
+                placeholder="  Username"
+                className="username"
+              />
+              <br />
+              <StatefulInput
+                onChange={this.handlePassword}
+                type="password"
+                placeholder="  Password"
+                className="password"
+              />
+              <br />
+              <Button onClick={this.handleLogin} className="login-btn">
+                Login
+              </Button>
+              <Block as="span" marginLeft="scale300" />
+            </form>
+          </div>
+
+          <div className="register-container">
+            <form>
+              <h3>Register</h3>
+              <StatefulInput
+                onChange={this.handleUsername}
+                placeholder="  Username"
+                className="username"
+              />
+              <br />
+              <StatefulInput
+                onChange={this.handleEmail}
+                placeholder="  Email"
+                className="email"
+              />
+              <br />
+              <StatefulInput
+                onChange={this.handlePassword}
+                type="password"
+                placeholder="  Password"
+                className="password"
+              />
+              <br />
+              <Button onClick={this.handleRegister} className="register-btn">
+                Register
+              </Button>
+              <Block as="span" marginLeft="scale300" />
+            </form>
+          </div>
         </div>
-        ||||||
-        <div className="register-container">
-          <form>
-            Register
-            <input
-              onChange={this.handleUsername}
-              placeholder="  Username"
-              className="username"
-            />
-            <input
-              onChange={this.handleEmail}
-              placeholder="  Email"
-              className="email"
-            />
-            <input
-              onChange={this.handlePassword}
-              type="password"
-              placeholder="  Password"
-              className="password"
-            />
-            <button onClick={this.handleRegister} className="register-btn">
-              Register
-            </button>
-          </form>
-        </div>
-      </div>
+      </Centered>
     );
   }
 }
